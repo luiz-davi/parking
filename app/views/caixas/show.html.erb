@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Aberto:</strong>
+  <%= @caixa.aberto %>
+</p>
+
+<p>
+  <strong>Saldo:</strong>
+  <%= @caixa.saldo %>
+</p>
+
+<%= link_to 'Edit', edit_caixa_path(@caixa) %> |
+<%= link_to 'Back', caixas_path %>

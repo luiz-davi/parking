@@ -1,0 +1,2 @@
+class Caixa < ApplicationRecord
+end

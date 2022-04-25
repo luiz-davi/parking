@@ -1,0 +1,27 @@
+<%= form_for(caixa) do |f| %>
+  <% if caixa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(caixa.errors.count, "error") %> prohibited this caixa from being saved:</h2>
+
+      <ul>
+      <% caixa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :aberto %>
+    <%= f.check_box :aberto %>
+  </div>
+
+  <div class="field">
+    <%= f.label :saldo %>
+    <%= f.text_field :saldo %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

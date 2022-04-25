@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aberto: false
+  saldo: 1.5
+
+two:
+  aberto: false
+  saldo: 1.5

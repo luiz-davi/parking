@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Placa:</strong>
+  <%= @locacao.placa %>
+</p>
+
+<p>
+  <strong>Vaga:</strong>
+  <%= @locacao.vaga %>
+</p>
+
+<%= link_to 'Edit', edit_locacao_path(@locacao) %> |
+<%= link_to 'Back', locacaos_path %>

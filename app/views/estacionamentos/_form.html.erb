@@ -1,0 +1,22 @@
+<%= form_for(estacionamento) do |f| %>
+  <% if estacionamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(estacionamento.errors.count, "error") %> prohibited this estacionamento from being saved:</h2>
+
+      <ul>
+      <% estacionamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

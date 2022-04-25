@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vagas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Estacionamento</th>
+      <th>Disponibilidade</th>
+      <th>Preco</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vagas.each do |vaga| %>
+      <tr>
+        <td><%= vaga.estacionamento %></td>
+        <td><%= vaga.disponibilidade %></td>
+        <td><%= vaga.preco %></td>
+        <td><%= link_to 'Show', vaga %></td>
+        <td><%= link_to 'Edit', edit_vaga_path(vaga) %></td>
+        <td><%= link_to 'Destroy', vaga, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vaga', new_vaga_path %>

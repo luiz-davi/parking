@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Caixas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Aberto</th>
+      <th>Saldo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caixas.each do |caixa| %>
+      <tr>
+        <td><%= caixa.aberto %></td>
+        <td><%= caixa.saldo %></td>
+        <td><%= link_to 'Show', caixa %></td>
+        <td><%= link_to 'Edit', edit_caixa_path(caixa) %></td>
+        <td><%= link_to 'Destroy', caixa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Caixa', new_caixa_path %>

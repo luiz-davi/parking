@@ -1,15 +1,121 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* CSS - Cascading Style Sheets*/
+:root {
+    --color-background: #F0F0F7; 
+    --color-primary-lighter: #9871F5;
+    --color-primary-light: #916BEA;
+    --color-primary: #8257E5;
+    --color-primary-dark: #774DD6;
+    --color-primary-darker: #6842c2;
+    --color-secondary: #04D361;
+    --color-secondary-dark: #04BF58;
+    --color-title-in-primary: #FFFFFF;
+    --color-text-in-primary: #D4C2FF;
+    --color-text-title: #32264D;
+    --color-text-complement: #9C98A6;
+    --color-text-base: #6A6180;
+    --color-line-in-white: #E6E6F0;
+    --color-input-background: #F8F8FC;
+    --color-button-text: #FFFFFF;
+    --color-box-base: #FFFFFF;
+    --color-box-footer: #FAFAFC;
+    --color-small-info: #C1BCCC;
+}
+
+/* INDEX VAGAS  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, 
+body {
+    height: 100vh; /* height = altura */
+}
+
+body {
+    background: var(--color-primary);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+body,
+input,
+button,
+textarea {
+    font-weight: 500;
+    font-family: Poppins;
+    font-size: 1.9rem;
+    color: var(--color-text-in-primary);
+}
+
+th {
+    font-weight: normal;
+    text-align: left;
+}
+
+th, td {
+    padding: 0.1em 1em;
+}
+
+form {
+    justify-content: center;
+    color: var(-color-text-in-primary);
+}
+
+.title-parking,
+.title-vagas {
+    justify-content: center;
+    align-items: center;
+    display: grid;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-weight: 500;
+    font-size: 5rem;
+}
+
+.btn-new-vaga, .btn-back {
+    background-color: var(--color-secondary);
+    color: var(--color-text-in-primary);
+
+    border: none;
+    font-weight: 500;
+    font-family: Poppins;
+    font-size: 2.2rem;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.btn-new-vaga:hover {
+    box-shadow: #ffffff 0 0 0 3px, transparent 0 0 0 0;
+}
+
+.btn-back:hover {
+    box-shadow: #ffffff 0 0 0 3px, transparent 0 0 0 0;
+}
+
+.table-parking {
+    justify-content: center;
+    align-items: center;
+    display: flex-box;
+}
+
+@media (min-width: 700px) {
+    :root {
+        font-size: 62.5%; /* todo 1rem vai ser relativo a 10px */
+    }
+}
+
+
+/* NEW VAGA */
+.btn-back{
+    justify-content: center;
+    align-items: center;
+    display: inline-block;
+}

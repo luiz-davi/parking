@@ -21,7 +21,7 @@
     --color-small-info: #C1BCCC;
 }
 
-/* INDEX VAGAS  */
+/* ==============================================INDEX VAGAS=========================================================  */
 * {
     margin: 0;
     padding: 0;
@@ -48,11 +48,16 @@ textarea {
     font-family: Poppins;
     font-size: 1.9rem;
     color: var(--color-text-in-primary);
+
+    justify-content: center;
+    align-items: center;
+    display: grid;
 }
 
 th {
     font-weight: normal;
     text-align: left;
+    text-shadow: 1px 1px 2px rgb(83, 81, 81)
 }
 
 th, td {
@@ -62,6 +67,7 @@ th, td {
 form {
     justify-content: center;
     color: var(-color-text-in-primary);
+    text-shadow: 1px 1px 2px rgb(83, 81, 81)
 }
 
 .title-parking,
@@ -74,6 +80,7 @@ form {
     font-weight: bold;
     font-weight: 500;
     font-size: 5rem;
+    text-shadow: 1px 1px 2px rgb(19, 18, 18)
 }
 
 .btn-new-vaga, .btn-back {
@@ -113,9 +120,78 @@ form {
 }
 
 
-/* NEW VAGA */
+/* =====================================================NEW VAGA========================================================= */
 .btn-back{
     justify-content: center;
     align-items: center;
     display: inline-block;
 }
+
+/* ======================FIELDS================== */
+.field-estacionamento, 
+.field-disponibilidade, 
+.field-preco{
+    color: var(--color-text-in-primary);
+
+    display: grid;
+    justify-content: center;
+    display: grid;
+    align-items: center;
+}
+
+/* ======================LABELS================== */
+
+.label-estacionamento,
+.label-disponiblidade,
+.label-preco{
+    font-size: 3rem;
+    /* margin-bottom: 2rem; */
+    display: grid;
+    justify-content: center;
+    display: grid;
+    align-items: center; 
+    text-shadow: 1px 1px 2px rgb(83, 81, 81)
+}
+
+/* ===================TEXT FIELDS------------------- */
+.text-field-estacionamento,
+.check-box-disponiblidade,
+.text-field-preco{
+    margin: 2.0rem;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    border-radius: 15px;
+    border-left:2px solid #d3cdd0
+}
+
+/* ==================INPUTS======================== */
+input{
+    border:none;
+    outline:none;
+    display:inline-block;
+    height:34px;
+    vertical-align:middle;
+    position:relative;
+    bottom:14px;
+    right: -2px;
+    border-radius:22px;
+    width:220px;
+    box-sizing:border-box;
+    padding:0 18px; 
+}
+  
+input[type="button"]{ 
+    background:rgba(197,62,126,.33) ! important;
+    color:#fff;
+    position:relative;
+    left:9px;
+    top:25px; 
+    width:100px;
+    cursor:pointer;
+
+    align-items: center;
+    justify-content: center;
+    display: flexbox;
+}
+

@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :estacionamento_id %>
-    <%= f.text_field :estacionamento_id %>
+  <div class="field-estacionamento">
+    <%= f.label :estacionamento_id, class: "label-estacionamento" %>
+    <%= f.text_field :estacionamento_id, class: "text-field-estacionamento" %>
   </div>
 
-  <div class="field">
-    <%= f.label :disponibilidade %>
-    <%= f.check_box :disponibilidade %>
+  <div class="field-disponibilidade">
+    <%= f.label :disponibilidade, class: "label-disponiblidade" %>
+    <%= f.check_box :disponibilidade, class: "check-box-disponiblidade" %>
   </div>
 
-  <div class="field">
-    <%= f.label :preco %>
-    <%= f.text_field :preco %>
+  <div class="field-preco">
+    <%= f.label :preco, class: "label-preco" %>
+    <%= f.text_field :preco, class: "text-field-preco" %>
   </div>
 
   <div class="actions">

@@ -8,4 +8,11 @@ class User < ApplicationRecord
          :rememberable,
          :validatable,
          :trackable
-end
+
+  enum funcao: {adm: 1, operador: 2}
+
+  def adm?
+    funcao == 1 ? true : false
+  end
+
+end 

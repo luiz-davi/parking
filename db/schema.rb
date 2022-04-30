@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20220428000312) do
 
   create_table "caixas", force: :cascade do |t|
     t.boolean  "aberto",            default: false
-    t.integer  "estacionamento_id"
+    t.integer  "estacionamento_id", default: 1
     t.float    "saldo"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20220428000312) do
   end
 
   create_table "vagas", force: :cascade do |t|
-    t.integer  "estacionamento_id"
+    t.integer  "estacionamento_id", default: 1
     t.boolean  "disponibilidade",   default: true
     t.float    "preco"
     t.datetime "created_at",                       null: false

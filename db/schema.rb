@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20220430232349) do
   create_table "vagas", force: :cascade do |t|
     t.integer  "estacionamento_id", default: 1
     t.boolean  "disponibilidade",   default: true
-    t.float    "preco"
+    t.float    "preco",             default: 6.0
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.index ["estacionamento_id"], name: "index_vagas_on_estacionamento_id"

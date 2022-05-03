@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sangria</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Estacionamento</th>
+      <th>Caixa</th>
+      <th>Valor</th>
+      <th>Motivo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sangria.each do |sangrium| %>
+      <tr>
+        <td><%= sangrium.user %></td>
+        <td><%= sangrium.estacionamento %></td>
+        <td><%= sangrium.caixa %></td>
+        <td><%= sangrium.valor %></td>
+        <td><%= sangrium.motivo %></td>
+        <td><%= link_to 'Show', sangrium %></td>
+        <td><%= link_to 'Destroy', sangrium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sangrium', new_sangrium_path %>

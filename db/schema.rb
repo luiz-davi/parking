@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220430232349) do
+ActiveRecord::Schema.define(version: 20220502233616) do
 
   create_table "caixas", force: :cascade do |t|
     t.boolean  "aberto",            default: false
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 20220430232349) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.index ["estacionamento_id"], name: "index_caixas_on_estacionamento_id"
+  end
+
+  create_table "debites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "estacionamento_id"
+    t.integer  "caixa_id"
+    t.integer  "valor"
+    t.text     "motivo"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["caixa_id"], name: "index_debites_on_caixa_id"
+    t.index ["estacionamento_id"], name: "index_debites_on_estacionamento_id"
+    t.index ["user_id"], name: "index_debites_on_user_id"
   end
 
   create_table "estacionamentos", force: :cascade do |t|
@@ -33,6 +46,19 @@ ActiveRecord::Schema.define(version: 20220430232349) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["vaga_id"], name: "index_locacaos_on_vaga_id"
+  end
+
+  create_table "sangria", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "estacionamento_id"
+    t.integer  "caixa_id"
+    t.integer  "valor"
+    t.text     "motivo"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["caixa_id"], name: "index_sangria_on_caixa_id"
+    t.index ["estacionamento_id"], name: "index_sangria_on_estacionamento_id"
+    t.index ["user_id"], name: "index_sangria_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

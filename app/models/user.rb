@@ -12,7 +12,7 @@ class User < ApplicationRecord
   enum funcao: {adm: 1, operador: 2}
 
   def adm?
-    funcao == 1 ? true : false
+    funcao == "adm" ? true : false
   end
 
 end 

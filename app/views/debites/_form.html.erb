@@ -1,0 +1,42 @@
+<%= form_for(debite) do |f| %>
+  <% if debite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(debite.errors.count, "error") %> prohibited this debite from being saved:</h2>
+
+      <ul>
+      <% debite.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estacionamento_id %>
+    <%= f.text_field :estacionamento_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :caixa_id %>
+    <%= f.text_field :caixa_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :valor %>
+    <%= f.number_field :valor %>
+  </div>
+
+  <div class="field">
+    <%= f.label :motivo %>
+    <%= f.text_area :motivo %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

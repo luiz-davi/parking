@@ -1,0 +1,2 @@
+module SangriaHelper
+end

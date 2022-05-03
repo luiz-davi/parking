@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Debites</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Estacionamento</th>
+      <th>Caixa</th>
+      <th>Valor</th>
+      <th>Motivo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @debites.each do |debite| %>
+      <tr>
+        <td><%= debite.user %></td>
+        <td><%= debite.estacionamento %></td>
+        <td><%= debite.caixa %></td>
+        <td><%= debite.valor %></td>
+        <td><%= debite.motivo %></td>
+        <td><%= link_to 'Show', debite %></td>
+        <td><%= link_to 'Destroy', debite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Debite', new_debite_path %>

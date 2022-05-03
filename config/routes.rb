@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
   root "vagas#index"
+  devise_for :users
+
+  resources :sangria, only: [:create, :index, :show, :new, :destroy]
+  resources :debites, only: [:create, :index, :show, :new, :destroy]
   resources :locacaos
   resources :vagas
   resources :caixas

@@ -17,9 +17,8 @@
       <tr>
         <td><%= vaga.estacionamento %></td>
         <td><%= vaga.disponibilidade %></td>
-        <td><%= vaga.preco %></td>
         <td><%= link_to 'Show', vaga %></td>
-        <td><%= link_to 'Edit', edit_vaga_path(vaga) %></td>
+        <td><%= link_to 'Alocar', new_locacao_path(vaga_id: vaga.id) %></td>
         <td><%= link_to 'Destroy', vaga, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

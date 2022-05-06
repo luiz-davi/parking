@@ -3,7 +3,7 @@ class VagasController < ApplicationController
   before_action :set_vaga, only: %i[ show edit update destroy ]
 
   def index
-    @vagas = Vaga.all
+    @vagas = Vaga.where(disponibilidade: true)
   end
 
   def show
@@ -11,6 +11,7 @@ class VagasController < ApplicationController
 
   def new
     @vaga = Vaga.new
+    @vaga.estacionamento = estacionamento
   end
 
   def edit
@@ -18,6 +19,7 @@ class VagasController < ApplicationController
 
   def create
     @vaga = Vaga.new(vaga_params)
+    # TODO inicializar entrada como time.now
 
     respond_to do |format|
       if @vaga.save
@@ -49,6 +51,11 @@ class VagasController < ApplicationController
       format.html { redirect_to vagas_url, notice: "Vaga was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def finalzar
+    # saida inicializada como time.now
+    # fazer calculo
   end
 
   private

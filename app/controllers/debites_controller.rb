@@ -19,8 +19,8 @@ class DebitesController < ApplicationController
   def create
     @debite = Debite.new(debite_params) do |d|
       d.user_id = current_user.id
-      d.estacionamento_id = Estacionamento.first.id
-      d.caixa_id = Caixa.first.id
+      d.estacionamento_id = estacionamento.id
+      d.caixa_id = estacionamento.id
     end
 
     respond_to do |format|
@@ -50,12 +50,10 @@ class DebitesController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_debite
       @debite = Debite.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def debite_params
       params.require(:debite).permit(:valor, :motivo)
     end

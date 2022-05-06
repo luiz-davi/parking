@@ -19,8 +19,8 @@ class SangriaController < ApplicationController
   def create
     @sangrium = Sangrium.new(sangrium_params) do |s|
       s.user_id = current_user.id
-      s.estacionamento_id = Estacionamento.first.id
-      s.caixa_id = Caixa.first.id
+      s.estacionamento_id = estacionamento.id
+      s.caixa_id = caixa.id
     end
 
     if @sangrium.valor <= Caixa.first.saldo

@@ -10,5 +10,10 @@
   <%= @locacao.vaga %>
 </p>
 
-<%= link_to 'Edit', edit_locacao_path(@locacao) %> |
+<p>
+  <strong>Entrada:</strong>
+  <%= @locacao.entrada %>
+</p>
+
+<%= link_to 'Finalizar', locacao_finalizar_path(@locacao.id), method: :post %> |
 <%= link_to 'Back', locacaos_path %>

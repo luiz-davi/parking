@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220502233616) do
+ActiveRecord::Schema.define(version: 20220504180144) do
 
   create_table "caixas", force: :cascade do |t|
     t.boolean  "aberto",            default: false
-    t.integer  "estacionamento_id", default: 1
+    t.integer  "estacionamento_id"
     t.float    "saldo"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20220502233616) do
     t.string   "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "preco_vaga"
+    t.float    "taxa"
   end
 
   create_table "locacaos", force: :cascade do |t|
@@ -45,6 +47,8 @@ ActiveRecord::Schema.define(version: 20220502233616) do
     t.integer  "vaga_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time     "entrada"
+    t.time     "saida"
     t.index ["vaga_id"], name: "index_locacaos_on_vaga_id"
   end
 
@@ -80,9 +84,8 @@ ActiveRecord::Schema.define(version: 20220502233616) do
   end
 
   create_table "vagas", force: :cascade do |t|
-    t.integer  "estacionamento_id", default: 1
+    t.integer  "estacionamento_id"
     t.boolean  "disponibilidade",   default: true
-    t.float    "preco",             default: 6.0
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.index ["estacionamento_id"], name: "index_vagas_on_estacionamento_id"

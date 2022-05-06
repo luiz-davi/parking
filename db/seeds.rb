@@ -5,9 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+parking = Estacionamento.create(nome: "Car Parking", preco_vaga: 6, taxa: 2)
 User.create(email: "adm@gmail.com", password: "adm123", funcao: "adm")
-Caixa.create
+User.create(email: "operador@gmail.com", password: "123456")
+parking.caixas.create
 
 5.times do 
-    vaga = Vaga.create
+    parking.vagas.create
 end

@@ -1,5 +1,5 @@
 class LocacaosController < ApplicationController
-  before_action :set_locacao, only: %i[ show edit update destroy ]
+  before_action :set_locacao, only: %i[ show update finalizar]
 
   def index
     @locacaos = Locacao.all
@@ -9,18 +9,18 @@ class LocacaosController < ApplicationController
   end
 
   def new
-    @locacao = Locacao.new
+    @locacao = Locacao.new(vaga_id: vaga_id)
   end
 
-  def edit
-  end
 
   def create
     @locacao = Locacao.new(locacao_params)
 
     respond_to do |format|
       if @locacao.save
-        format.html { redirect_to locacao_url(@locacao), notice: "Locacao was successfully created." }
+        @locacao.update(entrada: Time.now)
+        @locacao.vaga.update(disponibilidade: false)
+        format.html { redirect_to locacaos_path, notice: "Locacao was successfully created." }
         format.json { render :show, status: :created, location: @locacao }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,13 +41,11 @@ class LocacaosController < ApplicationController
     end
   end
 
-  def destroy
-    @locacao.destroy
 
-    respond_to do |format|
-      format.html { redirect_to locacaos_url, notice: "Locacao was successfully destroyed." }
-      format.json { head :no_content }
-    end
+  def finalizar
+    # @locacao.update(saida: Time.now)
+
+    render json: {error: "finalizado"}
   end
 
   private
@@ -57,5 +55,9 @@ class LocacaosController < ApplicationController
 
     def locacao_params
       params.require(:locacao).permit(:placa, :vaga_id)
+    end
+
+    def vaga_id
+      params[:vaga_id]
     end
 end

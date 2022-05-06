@@ -7,6 +7,7 @@
     <tr>
       <th>Placa</th>
       <th>Vaga</th>
+      <th>Entrada</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,8 +17,8 @@
       <tr>
         <td><%= locacao.placa %></td>
         <td><%= locacao.vaga %></td>
+        <td><%= locacao.entrada %></td>
         <td><%= link_to 'Show', locacao %></td>
-        <td><%= link_to 'Edit', edit_locacao_path(locacao) %></td>
         <td><%= link_to 'Destroy', locacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

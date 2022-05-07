@@ -7,13 +7,17 @@
 
 <p>
   <strong>Vaga:</strong>
-  <%= @locacao.vaga %>
+  <%= @locacao.vaga.id %>
 </p>
 
 <p>
   <strong>Entrada:</strong>
-  <%= @locacao.entrada %>
+  <%= @locacao.created_at.strftime("%d/%m/%Y - %H:%M:%S") %>
 </p>
 
-<%= link_to 'Finalizar', locacao_finalizar_path(@locacao.id), method: :post %> |
-<%= link_to 'Back', locacaos_path %>
+<div class="faixa">
+  <ul>
+    <li><%= link_to 'Finalizar', locacao_finalizar_path(@locacao.id) %></li>
+    <li><%= link_to 'Back', locacaos_path %></li>
+  </ul>
+</div> 

@@ -2,14 +2,15 @@ class LocacaosController < ApplicationController
   before_action :set_locacao, only: %i[ show update finalizar]
 
   def index
-    @locacaos = Locacao.all
+    @locacaos = Locacao.where("locacaos.saida IS NULL")
   end
 
   def show
   end
 
   def new
-    @locacao = Locacao.new(vaga_id: vaga_id)
+    @locacao = Locacao.new
+    @locacao.vaga_id = vaga_id if vaga_id
   end
 
 
@@ -18,7 +19,7 @@ class LocacaosController < ApplicationController
 
     respond_to do |format|
       if @locacao.save
-        @locacao.update(entrada: Time.now)
+        @locacao.update(entrada: Time.current)
         @locacao.vaga.update(disponibilidade: false)
         format.html { redirect_to locacaos_path, notice: "Locacao was successfully created." }
         format.json { render :show, status: :created, location: @locacao }
@@ -43,14 +44,12 @@ class LocacaosController < ApplicationController
 
 
   def finalizar
-    # @locacao.update(saida: Time.now)
-
-    render json: {error: "finalizado"}
   end
 
   private
     def set_locacao
-      @locacao = Locacao.find(params[:id])
+      id = params[:id] || params[:locacao_id]
+      @locacao = Locacao.find(id)
     end
 
     def locacao_params

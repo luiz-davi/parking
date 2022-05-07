@@ -9,7 +9,15 @@
   </head>
 
   <body>
-    <%= link_to 'Sair', destroy_user_session_path, method: :delete, style: "color: #FFFFFF"%>
+    <div class="faixa">
+      <ul>
+        <li><%= link_to 'Sair', destroy_user_session_path, method: :delete, style: "color: #FFFFFF"%></li>
+        <li><%= link_to 'Home', root_path, style: "color: #FFFFFF"%></li>
+        <li><%= link_to "Locações", locacaos_path, style: "color: #FFFFFF"  %></li>
+        <li><%= "Saldo caixa: #{caixa.saldo}" %></li>
+      </ul>
+    </div> 
+    
     <%= yield %>
   </body>
 </html>

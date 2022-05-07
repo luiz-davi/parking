@@ -1,0 +1,42 @@
+<h1>Finalizar locacao</h1>
+
+
+<p>
+  <strong>Entrada:</strong>
+  <%= @locacao.created_at.strftime("%d/%m/%Y - %H:%M:%S") %>
+</p>
+
+<p>
+  <strong>Saida:</strong>
+  <%= Time.now.strftime("%d/%m/%Y - %H:%M:%S") %>
+</p>
+
+<p>
+  <strong>Placa:</strong>
+  <%= @locacao.placa %>
+</p>
+
+<p>
+  <strong>Vaga:</strong>
+  <%= @locacao.vaga.id %>
+</p>
+
+<p>
+  <strong>Tempo Total:</strong>
+  <%= "#{tempo(@locacao.entrada, Time.now)} minutos"%>
+</p>
+
+<p>
+  <strong>Preço:</strong>
+  <% preco = calcular_preco(@locacao.entrada, Time.now, estacionamento.preco_vaga, estacionamento.taxa) %>
+  <%= preco %>
+</p>
+
+
+<div class="faixa">
+  <ul>
+    <li><%= link_to 'Finalizar venda', root_path %></li>
+    <li><%= link_to 'Back', locacaos_path %></li>
+  </ul>
+</div> 
+

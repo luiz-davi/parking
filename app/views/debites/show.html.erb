@@ -2,17 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @debite.user %>
-</p>
-
-<p>
-  <strong>Estacionamento:</strong>
-  <%= @debite.estacionamento %>
-</p>
-
-<p>
-  <strong>Caixa:</strong>
-  <%= @debite.caixa %>
+  <%= @debite.user.email %>
 </p>
 
 <p>
@@ -25,4 +15,8 @@
   <%= @debite.motivo %>
 </p>
 
-<%= link_to 'Back', debites_path %>
+<% if current_user.adm? %>
+  <%= link_to 'Back', debites_path %>
+<% else %>
+  <%= link_to 'Back', root_path %>
+<%end%>

@@ -301,3 +301,7 @@ input[type="button"]{
 
 
 /* =================Tela Reset password=================== */
+.faixa ul li {
+    display: inline-block;
+    padding-right: 4px;
+}

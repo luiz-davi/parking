@@ -10,20 +10,19 @@ class VagasController < ApplicationController
   end
 
   def new
-    @vaga = Vaga.new
-    @vaga.estacionamento = estacionamento
+    
   end
 
   def edit
   end
 
   def create
-    @vaga = Vaga.new(vaga_params)
-    # TODO inicializar entrada como time.now
+    @vaga = Vaga.new
+    @vaga.estacionamento = estacionamento
 
     respond_to do |format|
       if @vaga.save
-        format.html { redirect_to vaga_url(@vaga), notice: "Vaga was successfully created." }
+        format.html { redirect_to root_path, notice: "Vaga was successfully created." }
         format.json { render :show, status: :created, location: @vaga }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -61,9 +60,5 @@ class VagasController < ApplicationController
   private
     def set_vaga
       @vaga = Vaga.find(params[:id])
-    end
-
-    def vaga_params
-      params.require(:vaga).permit(:estacionamento_id, :disponibilidade, :preco)
     end
 end

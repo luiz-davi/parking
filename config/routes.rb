@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :sangria, only: [:create, :index, :show, :new, :destroy]
   resources :debites, only: [:create, :index, :show, :new, :destroy]
   resources :locacaos, only: [:create, :index, :new, :show] do
-    post "/finalizar", to: "locacao#finalizar"
+    get "/finalizar", to: "locacaos#finalizar"
   end
   resources :vagas
   resources :caixas, only: [:show]

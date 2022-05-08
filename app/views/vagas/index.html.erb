@@ -5,9 +5,7 @@
 <table>
   <thead>
     <tr class="table-parking">
-      <th>Estacionamento</th>
-      <th>Disponibilidade</th>
-      <th>Preco</th>
+      <th>Numero da vaga</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,8 +13,7 @@
   <tbody>
     <% @vagas.each do |vaga| %>
       <tr>
-        <td><%= vaga.estacionamento %></td>
-        <td><%= vaga.disponibilidade %></td>
+        <td><%= vaga.id %></td>
         <td><%= link_to 'Show', vaga %></td>
         <td><%= link_to 'Alocar', new_locacao_path(vaga_id: vaga.id) %></td>
         <td><%= link_to 'Destroy', vaga, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,4 +24,4 @@
 
 <br>
 
-<%= link_to 'Nova Vaga', new_vaga_path, class: "btn-new-vaga" %>
+<%= link_to 'Nova Vaga', vagas_path, method: :post,  class: "btn-new-vaga" %>

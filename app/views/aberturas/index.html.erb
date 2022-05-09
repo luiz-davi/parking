@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Aberturas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>User</th>
+      <th>Caixa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aberturas.each do |abertura| %>
+      <tr>
+        <td><%= abertura.valor %></td>
+        <td><%= abertura.user %></td>
+        <td><%= abertura.caixa %></td>
+        <td><%= link_to 'Show', abertura %></td>
+        <td><%= link_to 'Edit', edit_abertura_path(abertura) %></td>
+        <td><%= link_to 'Destroy', abertura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Abertura', new_abertura_path %>

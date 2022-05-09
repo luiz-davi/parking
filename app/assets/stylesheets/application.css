@@ -78,7 +78,8 @@ form {
 }
 
 .title-parking,
-.title-vagas {
+.title-vagas,
+.title-debitos {
     justify-content: center;
     align-items: center;
     display: grid;
@@ -151,7 +152,7 @@ form {
 .label-estacionamento,
 .label-disponiblidade,
 .label-preco{
-    font-size: 3rem;
+    font-size: 2.5rem;
     /* margin-bottom: 2rem; */
     display: grid;
     justify-content: center;
@@ -170,6 +171,11 @@ form {
     display: grid;
     border-radius: 15px;
     border-left:2px solid #d3cdd0
+}
+
+.text-field-area{
+    border-radius: 12.5px;
+    text-size-adjust: 10px;
 }
 
 /* ==================INPUTS======================== */
@@ -313,5 +319,3 @@ input[type="button"]{
     display: flex;
 
 }
-
-/*===================Horizontal BAR============================= */

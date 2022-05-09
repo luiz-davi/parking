@@ -3,6 +3,7 @@ class DebitesController < ApplicationController
 
   def index
     unless current_user.adm?
+      flash[:alert] = "Todos campos devem ser preenchidos"
       render json: { error: "é preciso ser adm para ver todas os debites" }
     else
       @debites = Debite.all
@@ -44,6 +45,7 @@ class DebitesController < ApplicationController
         format.json { head :no_content }
       end
     else
+      flash[:alert] = "Todos campos devem ser preenchidos"
       render json: {error: "apenas um adm pode remover essa operação"}
     end
   end

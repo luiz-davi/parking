@@ -13,9 +13,7 @@ class DebitesController < ApplicationController
   end
 
   def new
-    @debite = Debite.new(user_id: current_user.id,
-                         estacionamento_id: estacionamento.id,
-                         caixa_id: caixa.id)
+    @debite = Debite.new
   end
 
   def create

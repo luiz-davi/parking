@@ -9,14 +9,30 @@
   </head>
 
   <body>
-    <div class="faixa">
-      <ul>
-        <li><%= link_to 'Sair', destroy_user_session_path, method: :delete, style: "color: #FFFFFF"%></li>
-        <li><%= link_to 'Home', root_path, style: "color: #FFFFFF"%></li>
-        <li><%= link_to "Locações", locacaos_path, style: "color: #FFFFFF"  %></li>
-        <li><%= "Saldo caixa: #{caixa.saldo}" %></li>
-      </ul>
-    </div> 
+  <% if current_user %>
+    <% if caixa.aberto %>
+      <div class="faixa">
+        <ul>
+          <li><%= link_to 'Sair', destroy_user_session_path, method: :delete, style: "color: #FFFFFF"%></li>
+          <li><%= link_to 'Home', root_path, style: "color: #FFFFFF"%></li>
+          <li><%= link_to "Locações", locacaos_path, style: "color: #FFFFFF"  %></li>
+          <% if current_user.try(:adm?) %>
+            <li><%= link_to "Estacionamento", edit_estacionamento_path(estacionamento), style: "color: #FFFFFF"  %></li>
+          <% end %>
+          <li><%= "Saldo caixa: #{caixa.saldo.round(2)}" %></li>
+          <li><%= link_to "Sangria", new_sangrium_path, style: "color: #FFFFFF"  %></li>
+          <li><%= link_to "Debite", new_debite_path, style: "color: #FFFFFF"  %></li>
+        </ul>
+      </div> 
+    <% else %>
+      <div class="faixa">
+        <ul>
+          <li><%= link_to 'Abrir Caixa', root_path, style: "color: #FFFFFF"%></li>
+          <li><%= link_to 'Sair', destroy_user_session_path, method: :delete, style: "color: #FFFFFF"%></li>
+        </ul>
+      </div> 
+    <% end %>
+  <% end %>
     
     <%= yield %>
   </body>

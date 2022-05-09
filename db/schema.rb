@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220508230649) do
+ActiveRecord::Schema.define(version: 20220509225658) do
+
+  create_table "aberturas", force: :cascade do |t|
+    t.float    "valor"
+    t.integer  "user_id"
+    t.integer  "caixa_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["caixa_id"], name: "index_aberturas_on_caixa_id"
+    t.index ["user_id"], name: "index_aberturas_on_user_id"
+  end
 
   create_table "caixas", force: :cascade do |t|
     t.boolean  "aberto",            default: false
@@ -40,6 +50,19 @@ ActiveRecord::Schema.define(version: 20220508230649) do
     t.datetime "updated_at", null: false
     t.float    "preco_vaga"
     t.float    "taxa"
+  end
+
+  create_table "fechamentos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "caixa_id"
+    t.float    "valor"
+    t.text     "obs"
+    t.float    "valor_anterior"
+    t.integer  "status"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["caixa_id"], name: "index_fechamentos_on_caixa_id"
+    t.index ["user_id"], name: "index_fechamentos_on_user_id"
   end
 
   create_table "locacaos", force: :cascade do |t|
@@ -86,7 +109,6 @@ ActiveRecord::Schema.define(version: 20220508230649) do
   create_table "vagas", force: :cascade do |t|
     t.integer  "estacionamento_id"
     t.boolean  "disponibilidade",   default: true
-    t.float    "preco"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.index ["estacionamento_id"], name: "index_vagas_on_estacionamento_id"

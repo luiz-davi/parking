@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @abertura.valor %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @abertura.user %>
+</p>
+
+<p>
+  <strong>Caixa:</strong>
+  <%= @abertura.caixa %>
+</p>
+
+<%= link_to 'Edit', edit_abertura_path(@abertura) %> |
+<%= link_to 'Back', aberturas_path %>

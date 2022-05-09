@@ -2,12 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @venda.user %>
-</p>
-
-<p>
-  <strong>Caixa:</strong>
-  <%= @venda.caixa %>
+  <%= @venda.user.email %>
 </p>
 
 <p>
@@ -20,10 +15,6 @@
   <%= @venda.tipo_pagamento %>
 </p>
 
-<p>
-  <strong>Locacao:</strong>
-  <%= @venda.locacao %>
-</p>
 
 <%= link_to 'Edit', edit_venda_path(@venda) %> |
 <%= link_to 'Back', vendas_path %>

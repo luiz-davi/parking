@@ -3,7 +3,7 @@ class SangriaController < ApplicationController
 
   def index
     unless current_user.adm?
-      render json: { error: "é preciso ser adm para ver todas as sangrias" }
+      redirect_to root_path, notice: "Sem autorização para ver as sangrias"
     else
       @sangria = Sangrium.all
     end

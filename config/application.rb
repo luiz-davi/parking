@@ -15,7 +15,7 @@ module Parking
     # Devise
     config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
     config.active_record.time_zone_aware_types = [:datetime, :time]
-    # config.active_record.default_timezone = :local
+    config.active_record.default_timezone = :local
 
     config.time_zone = 'America/Recife'
    

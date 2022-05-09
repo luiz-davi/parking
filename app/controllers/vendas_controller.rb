@@ -2,41 +2,41 @@ class VendasController < ApplicationController
   before_action :set_venda, only: %i[ show edit ]
   before_action :set_venda_completa, only: %i[ new ]
 
-  # GET /vendas or /vendas.json
   def index
     @vendas = Venda.all
   end
 
-  # GET /vendas/1 or /vendas/1.json
   def show
   end
 
-  # GET /vendas/new
   def new
-    puts "-=-=-=-=-=-"
-    puts params[:locacao_id]
+    
   end
 
-  # GET /vendas/1/edit
   def edit
   end
 
-  # POST /vendas or /vendas.json
   def create
     @venda = Venda.new(venda_params) do |venda|
       venda.user_id = current_user.id
       venda.caixa_id = caixa.id
     end
 
+   atualizar_locacao(@venda.locacao, params[:time])
+    
     respond_to do |format|
       if @venda.save
         format.html { redirect_to venda_url(@venda), notice: "Venda was successfully created." }
         format.json { render :show, status: :created, location: @venda }
+        
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @venda.errors, status: :unprocessable_entity }
       end
     end
+
+   
+
   end
 
 
@@ -55,7 +55,8 @@ class VendasController < ApplicationController
       @venda = Venda.new(locacao_id: params[:locacao_id], valor: params[:valor])
     end
 
-    # def set_locacao
-    #   @locacao = Locacao.find(params[:locacao_id].to_i)
-    # end
+    def atualizar_locacao(locacao, saida)
+      locacao.update(saida: saida)
+    end
+
 end

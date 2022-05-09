@@ -3,7 +3,7 @@ class DebitesController < ApplicationController
 
   def index
     unless current_user.adm?
-      render json: { error: "é preciso ser adm para ver todas os debites" }
+      redirect_to root_path, notice: "Sem autorização para ver os debites"
     else
       @debites = Debite.all
     end

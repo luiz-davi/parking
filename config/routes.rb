@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :vendas
   root "vagas#index"
   devise_for :users
 

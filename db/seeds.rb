@@ -8,7 +8,7 @@
 parking = Estacionamento.create(nome: "Car Parking", preco_vaga: 6, taxa: 2)
 User.create(email: "adm@gmail.com", password: "adm123", funcao: "adm")
 User.create(email: "operador@gmail.com", password: "123456")
-parking.caixas.create
+parking.caixas.create(saldo: 1000)
 
 5.times do 
     parking.vagas.create

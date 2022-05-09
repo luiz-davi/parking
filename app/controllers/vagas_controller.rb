@@ -1,5 +1,4 @@
 class VagasController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_vaga, only: %i[ show edit update destroy ]
 
   def index
@@ -10,7 +9,6 @@ class VagasController < ApplicationController
   end
 
   def new
-    
   end
 
   def edit

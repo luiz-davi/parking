@@ -305,3 +305,13 @@ input[type="button"]{
     display: inline-block;
     padding-right: 4px;
 }
+
+.actions{
+    padding-top: 4rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+
+/*===================Horizontal BAR============================= */

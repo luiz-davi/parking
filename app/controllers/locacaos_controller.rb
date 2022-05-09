@@ -9,12 +9,16 @@ class LocacaosController < ApplicationController
   end
 
   def new
+    if !caixa.aberto
+      redirect_to root_path, notice: "Abra o caixa para pode alocar vagas"
+    end
     @locacao = Locacao.new
     @locacao.vaga_id = vaga_id if vaga_id
   end
 
 
   def create
+    
     @locacao = Locacao.new(locacao_params)
 
     respond_to do |format|

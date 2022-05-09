@@ -46,6 +46,7 @@ class DebitesController < ApplicationController
         format.json { head :no_content }
       end
     else
+      flash[:alert] = "Todos campos devem ser preenchidos"
       render json: {error: "apenas um adm pode remover essa operação"}
     end
   end

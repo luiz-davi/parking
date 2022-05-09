@@ -1,20 +1,14 @@
 class VendasController < ApplicationController
-  before_action :set_venda, only: %i[ show edit ]
   before_action :set_venda_completa, only: %i[ new ]
 
   def index
-    @vendas = Venda.all
+    @vendas = current_user.adm? ? Venda.all.order("vendas.created_at DESC") : Venda.joins(:user).order("vendas.created_at DESC").where(users: { email: current_user.email })
   end
 
-  def show
-  end
 
   def new
-    
   end
 
-  def edit
-  end
 
   def create
     @venda = Venda.new(venda_params) do |venda|
@@ -26,7 +20,7 @@ class VendasController < ApplicationController
     
     respond_to do |format|
       if @venda.save
-        format.html { redirect_to venda_url(@venda), notice: "Venda was successfully created." }
+        format.html { redirect_to vendas_url(@venda), notice: "Venda was successfully created." }
         format.json { render :show, status: :created, location: @venda }
         
       else
@@ -34,8 +28,6 @@ class VendasController < ApplicationController
         format.json { render json: @venda.errors, status: :unprocessable_entity }
       end
     end
-
-   
 
   end
 

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @fechamento.user %>
+</p>
+
+<p>
+  <strong>Caixa:</strong>
+  <%= @fechamento.caixa %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @fechamento.valor %>
+</p>
+
+<p>
+  <strong>Obs:</strong>
+  <%= @fechamento.obs %>
+</p>
+
+<p>
+  <strong>Valor anterior:</strong>
+  <%= @fechamento.valor_anterior %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @fechamento.status %>
+</p>
+
+<%= link_to 'Edit', edit_fechamento_path(@fechamento) %> |
+<%= link_to 'Back', fechamentos_path %>

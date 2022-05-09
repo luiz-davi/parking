@@ -1,0 +1,47 @@
+<%= form_for(fechamento) do |f| %>
+  <% if fechamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fechamento.errors.count, "error") %> prohibited this fechamento from being saved:</h2>
+
+      <ul>
+      <% fechamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :caixa_id %>
+    <%= f.text_field :caixa_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :valor %>
+    <%= f.text_field :valor %>
+  </div>
+
+  <div class="field">
+    <%= f.label :obs %>
+    <%= f.text_area :obs %>
+  </div>
+
+  <div class="field">
+    <%= f.label :valor_anterior %>
+    <%= f.text_field :valor_anterior %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.number_field :status %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

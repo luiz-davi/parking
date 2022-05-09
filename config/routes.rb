@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :vendas
+  resources :aberturas
+  resources :fechamentos
   root "vagas#index"
   devise_for :users
 
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   resources :locacaos, only: [:create, :index, :new, :show] do
     get "/finalizar", to: "locacaos#finalizar"
   end
+  resources :vendas, only: [:index, :new, :create]
   resources :vagas
   resources :caixas, only: [:show]
   resources :estacionamentos, only: [:show, :update, :edit]

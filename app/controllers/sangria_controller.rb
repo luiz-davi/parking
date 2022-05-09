@@ -13,9 +13,7 @@ class SangriaController < ApplicationController
   end
 
   def new
-    @sangrium = Sangrium.new(user_id: current_user.id,
-                             estacionamento_id: estacionamento.id,
-                             caixa_id: caixa.id)
+    @sangrium = Sangrium.new
   end
 
   def create

@@ -20,14 +20,9 @@
         <td><%= venda.valor %></td>
         <td><%= venda.tipo_pagamento %></td>
         <td><%= venda.locacao.try(:placa) || "Sem placa" %></td>
-        <td><%= link_to 'Show', venda %></td>
-        <td><%= link_to 'Edit', edit_venda_path(venda) %></td>
-        <td><%= link_to 'Destroy', venda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Venda', new_venda_path %>

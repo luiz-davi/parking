@@ -3,8 +3,7 @@ class DebitesController < ApplicationController
 
   def index
     unless current_user.adm?
-      flash[:alert] = "Todos campos devem ser preenchidos"
-      render json: { error: "é preciso ser adm para ver todas os debites" }
+      redirect_to root_path, notice: "Sem autorização para ver os debites"
     else
       @debites = Debite.all
     end
@@ -14,7 +13,9 @@ class DebitesController < ApplicationController
   end
 
   def new
-    @debite = Debite.new
+    @debite = Debite.new(user_id: current_user.id,
+                         estacionamento_id: estacionamento.id,
+                         caixa_id: caixa.id)
   end
 
   def create

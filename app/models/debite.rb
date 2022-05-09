@@ -7,12 +7,10 @@ class Debite < ApplicationRecord
   belongs_to :caixa
 
   def operation
-    result = Caixa.first.saldo + valor
-    Caixa.first.update(saldo: result)
+    caixa.update(saldo: caixa.saldo + valor)
   end
 
   def inverse_operation
-    result = Caixa.first.saldo - valor
-    Caixa.first.update(saldo: result)
+    caixa.update(saldo: caixa.saldo - valor)
   end
 end

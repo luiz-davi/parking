@@ -6,8 +6,6 @@
   <thead>
     <tr class="table-parking">
       <th>User</th>
-      <th>Estacionamento</th>
-      <th>Caixa</th>
       <th>Valor</th>
       <th>Motivo</th>
       <th colspan="3"></th>
@@ -17,9 +15,7 @@
   <tbody>
     <% @sangria.each do |sangrium| %>
       <tr>
-        <td><%= sangrium.user %></td>
-        <td><%= sangrium.estacionamento %></td>
-        <td><%= sangrium.caixa %></td>
+        <td><%= sangrium.user.email %></td>
         <td><%= sangrium.valor %></td>
         <td><%= sangrium.motivo %></td>
         <td><%= link_to 'Show', sangrium %></td>

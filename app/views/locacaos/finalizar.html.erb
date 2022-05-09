@@ -35,7 +35,7 @@
 
 <div class="faixa">
   <ul>
-    <li><%= link_to 'Finalizar venda', root_path %></li>
+    <li><%= link_to 'Finalizar venda', new_venda_path(valor: preco, locacao_id: @locacao.id.to_i) %></li>
     <li><%= link_to 'Back', locacaos_path %></li>
   </ul>
 </div> 

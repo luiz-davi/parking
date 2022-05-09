@@ -18,7 +18,7 @@
         <td><%= locacao.placa %></td>
         <td><%= locacao.vaga.id %></td>
         <td><%= locacao.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></td>
-        <td><%= link_to 'Show', locacao %></td>
+        <td><%= link_to 'Finalizar', locacao_finalizar_path(locacao.id) %></td>
         <td><%= link_to 'Destroy', locacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

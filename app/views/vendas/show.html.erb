@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @venda.user.email %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @venda.valor %>
+</p>
+
+<p>
+  <strong>Tipo pagamento:</strong>
+  <%= @venda.tipo_pagamento %>
+</p>
+
+
+<%= link_to 'Edit', edit_venda_path(@venda) %> |
+<%= link_to 'Back', vendas_path %>

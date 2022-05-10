@@ -1,4 +1,4 @@
-# Sistema de estacionamento :car:
+# Sistema de estacionamento 🚗
 > Status: **Em desenvolvimento**⚠️<br>
 
 ## Sobre o projeto 📑
